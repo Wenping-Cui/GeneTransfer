@@ -4,7 +4,7 @@ Created on Thu 10/10/2022
 @author: Wenping Cui
 """
 
-module simulation_light
+module simulation_lightning
 
 	using Distributions, StatsBase, Combinatorics
 	
