@@ -19,4 +19,4 @@ Jinput=(0.005)
 
 
 
-parallel --jobs 28 main.jl  --T 250000 --taskID $SGE_TASK_ID --threadID {%} --d 2 --J {1} --N {2} --rR_hosthost {3} --rH_phagehost {3} --L {4} --save_dir "results/diff_genetransf_noNconstraint/"  --population_constraint "no" --output_details true ::: ${Jinput[@]}   ::: ${Ninput[@]} ::: ${rR_array[@]} ::: ${Linput[@]} 
+parallel --jobs 28 main.jl  --T 250000 --taskID $SGE_TASK_ID --threadID {%} --d 2 --J {1} --N {2} --rR_hosthost {3} --rH_phagehost {3} --L {4} --save_dir "results/"  --population_constraint "hard" --output_details true ::: ${Jinput[@]}   ::: ${Ninput[@]} ::: ${rR_array[@]} ::: ${Linput[@]} 
