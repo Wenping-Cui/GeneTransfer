@@ -16,7 +16,8 @@
 #
 # Usage:
 #   julia main.jl --T 200000 --L 40 --J 0.01 --N 1E6 --rR_random 3E-5 --rH_random 3E-5
-#
+# or using default config params
+#   julia main.jl 
 # Merge multiple output files:
 #   awk '!/^(L,)/' results/*.txt > combined_output.txt
 #

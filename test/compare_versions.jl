@@ -18,7 +18,7 @@ using .simulation_light
 using DataStructures, Random
 
 # Global L so the old function's free-variable reference resolves correctly
-L = 8   # must match args["L"] below
+L = 30   # must match args["L"] below
 
 # ── Old simulation() — verbatim logic from git HEAD ───────────────────────────
 function simulation_old(dict_genenotype2index, G, Freq_host, Freq_phage, args, T, relaxation_time;
@@ -160,14 +160,14 @@ function simulation_new(dict_genenotype2index, G, Freq_host, Freq_phage, args, T
 end
 
 # ── Helper ─────────────────────────────────────────────────────────────────────
-function run_both(constraint, seed=42; T=80, relax=5, N=500, stop=false)
+function run_both(constraint, seed=42; T=10000, relax=5000, N=1000000, stop=false)
     args = Dict{String,Any}(
         "L" => L, "d" => 2,
-        "rR_hosthost" => 1e-3, "rR_random"    => 0.0,
-        "rH_random"   => 1e-3, "rH_phagephage"=> 0.0,
-        "rH_phagehost"=> 0.0,  "rH_3body"     => 0.0,
+        "rR_hosthost" => 1e-4, "rR_random"    => 0.0,
+        "rH_random"   => 0.0,  "rH_phagephage"=> 0.0,
+        "rH_phagehost"=> 1e-4,  "rH_3body"     => 0.0,
         "NX" => N, "NY" => N,
-        "J" => 0.005, "Jprop" => 1.0,
+        "J" => 0.01, "Jprop" => 1.0,
         "population_constraint" => constraint,
         "soft_threshold" => 5.0,
     )
@@ -189,7 +189,7 @@ end
 # ── Run comparisons across all constraint modes ────────────────────────────────
 println("=" ^ 60)
 println("  simulation() output comparison: old vs new")
-println("  L=$L, N=500, T=80, relaxation=5, seed=42")
+println("  L=$L, N=1000000, T=100000, relaxation=5000, seed=42")
 println("=" ^ 60)
 
 results = Bool[]
