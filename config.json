@@ -1,0 +1,37 @@
+{
+  "simulation": {
+    "T": 500000.0,
+    "relaxation_time": 5000
+  },
+  "population": {
+    "L": 30,
+    "d": 2,
+    "N": 1000000.0,
+    "Nprop_phagedivhost": 1.0,
+    "population_constraint": "soft",
+    "soft_threshold": 5.0
+  },
+  "genetics": {
+    "J": 5.0,
+    "Jprop": 1.0
+  },
+  "recombination_rates": {
+    "r": 0.001,
+    "r_prop": 1.0,
+    "rR_random": 0.0,
+    "rR_hosthost": 0.0,
+    "rH_random": 0.0,
+    "rH_phagephage": 0.0,
+    "rH_phagehost": 0.0,
+    "rH_3body": 0.0
+  },
+  "io": {
+    "save_dir": "results_simulation_test",
+    "output_details": true
+  },
+  "run": {
+    "taskID": 1,
+    "threadID": "1",
+    "trialID": 1
+  }
+}
